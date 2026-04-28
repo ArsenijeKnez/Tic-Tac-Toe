@@ -27,17 +27,15 @@ public class AudioManager : MonoBehaviour
         bgmSource.mute = !musicOn;
     }
 
-    public void ToggleMusic()
+    public void ToggleMusic(bool value)
     {
-        bool value = !musicOn;
         musicOn = value;
         bgmSource.mute = !value;
         PlayerPrefs.SetInt("Music", value ? 1 : 0);
     }
 
-    public void ToggleSFX()
+    public void ToggleSFX(bool value)
     {
-        bool value = !sfxOn;
         sfxOn = value;
         PlayerPrefs.SetInt("SFX", value ? 1 : 0);
 

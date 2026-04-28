@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class ToggleSetting : MonoBehaviour
 {
     public ToggleType toggleType = ToggleType.Music;
+    private Toggle toggle;
 
     void Start()
     {
         // Initializes the toggle state from the audio manager settings.
-        Toggle toggle = GetComponent<Toggle>();
+        toggle = GetComponent<Toggle>();
 
         if (toggleType == ToggleType.Music)
         {
@@ -28,11 +29,11 @@ public class ToggleSetting : MonoBehaviour
         // Flips the selected audio setting when the UI toggle changes.
         if (toggleType == ToggleType.Music)
         {
-            AudioManager.Instance.ToggleMusic();
+            AudioManager.Instance.ToggleMusic(!toggle.isOn);
         }
         else if (toggleType == ToggleType.SFX)
         {
-            AudioManager.Instance.ToggleSFX();
+            AudioManager.Instance.ToggleSFX(!toggle.isOn);
         }
     }
 }
